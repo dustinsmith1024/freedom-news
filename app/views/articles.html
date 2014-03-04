@@ -1,0 +1,14 @@
+<h1>Articles</h1>
+
+<div id="articlesDiv">
+  <div class="article" ng-repeat="(key, article) in articles | orderByPriority | orderBy:'-kudos'">
+    <a href="#/articles/{{article.$id}}" ng-click="select(article.$id)">Select</a>
+    <span href="#" ng-click="upVote(article.$id)">Up</span>
+    <span ng-model="kudos">{{article.kudos}} {{article.$id}}</span>
+    <em>{{article.name}}</em>: {{article.url}}
+    <span href="#" ng-click="articles.$remove(article.$id)">Remove</span>
+  </div>
+</div>
+
+<input type="text" ng-model="name" placeholder="Article Name">
+<input type="text" ng-model="url" ng-keydown="addArticle($event)" placeholder="URL">

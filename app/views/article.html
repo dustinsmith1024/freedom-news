@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-md-4">
+    <h1>Articles</h1>
+
+    <div id="articlesDiv">
+      <div class="article" ng-repeat="(key, article) in articles | orderByPriority | orderBy:'-kudos'">
+        <a href="#/articles/{{article.$id}}" ng-click="select(article.$id)">Select</a>
+        <span href="#" ng-click="upVote(article.$id)">Up</span>
+        <span ng-model="kudos">{{article.kudos}}</span>
+        <em>{{article.name}}</em>: {{article.url}}
+        <div>{{article.$id}}</div>
+        <div href="#" ng-click="articles.$remove(article.$id)">Remove</div>
+        
+      </div>
+    </div>
+    <input type="text" ng-model="name" placeholder="Article Name">
+    <input type="text" ng-model="url" ng-keydown="addArticle($event)" placeholder="URL">
+  </div>
+
+  <div class="col-md-8">
+    <h2>
+      <em>{{article.name}}</em>: {{article.url}}
+      <span href="#" ng-click="articles.$remove(article.$id)">Remove</span>
+    </h2>
+    
+    <span href="#" ng-click="upVote(article.$id)">^Up Vote: {{article.kudos}} points</span>
+    <div>ID: {{article.$id}}</div>
+
+    <h3>Comments</h3>
+    <div class="comments" ng-controller="CommentsCtrl" ng-if="article">
+      <div class="comment" ng-repeat="(k, comment) in article.comments">
+        <span href="#" ng-click="upVote(k)">Up</span>
+        <span>{{comment.kudos}}: Add Username</span>
+        <p>{{comment.body}}
+          <span href="#" ng-click="comments.$remove(k)">Remove</span>
+        </p>
+      </div>  
+
+      <label>Add Comment:
+        <input type="text" ng-model="body" placeholder="Some nice comment..." ng-keydown="addComment($event)"/>
+      </label>
+    </div>
+  </div>
+</div>
