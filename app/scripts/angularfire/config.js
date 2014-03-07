@@ -14,4 +14,4 @@ angular.module('freedomNewsApp')
   .constant('loginProviders', 'twitter')
 
   // your Firebase URL goes here
-  .constant('FBURL', 'https://th9gcxvk9q5.firebaseio.com');
+  .constant('FBURL', 'https://torid-fire-615.firebaseio.com/');

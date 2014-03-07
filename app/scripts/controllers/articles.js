@@ -3,7 +3,7 @@
 angular.module('freedomNewsApp')
   .controller('ArticlesCtrl', function ($scope, $firebase) {
 
-    var ref = new Firebase("https://th9gcxvk9q5.firebaseio-demo.com/articles");
+    var ref = new Firebase("https://torid-fire-615.firebaseio.com/articles");
     $scope.articles = $firebase(ref);
 
     $scope.addArticle = function(e) {
@@ -16,7 +16,7 @@ angular.module('freedomNewsApp')
 
     $scope.upVote = function(id){
       console.log(id);
-      var ref = new Firebase("https://th9gcxvk9q5.firebaseio-demo.com/articles/" + id + '/kudos');
+      var ref = new Firebase("https://torid-fire-615.firebaseio.com/articles/" + id + '/kudos');
       ref.transaction(function(kudos) {
         return kudos + 1;
       });
@@ -25,7 +25,7 @@ angular.module('freedomNewsApp')
 })
   .controller('ArticleCtrl', function ($scope, $firebase, $routeParams) {
     console.log($routeParams);
-    var ref = new Firebase("https://th9gcxvk9q5.firebaseio-demo.com/articles");
+    var ref = new Firebase("https://torid-fire-615.firebaseio.com/articles");
     //var ref = new Firebase("https://th9gcxvk9q5.firebaseio-demo.com/articles/" + $routeParams.article_id);
     $scope.articles = $firebase(ref);
     
@@ -49,7 +49,7 @@ angular.module('freedomNewsApp')
 
     $scope.upVote = function(id){
       console.log(id);
-      var ref = new Firebase("https://th9gcxvk9q5.firebaseio-demo.com/articles/" + id + '/kudos');
+      var ref = new Firebase("https://torid-fire-615.firebaseio.com/articles/" + id + '/kudos');
       ref.transaction(function(kudos) {
         return kudos + 1;
       });
@@ -59,7 +59,7 @@ angular.module('freedomNewsApp')
   .controller('CommentsCtrl', function ($scope, $firebase) {
 
     console.log('Comments: ', $scope.$parent.article.$id);
-    var ref = new Firebase("https://th9gcxvk9q5.firebaseio-demo.com/articles/" + $scope.$parent.article.$id + '/comments');
+    var ref = new Firebase("https://torid-fire-615.firebaseio.com/articles/" + $scope.$parent.article.$id + '/comments');
     $scope.comments = $firebase(ref);
     
     $scope.addComment = function(e){
@@ -69,7 +69,7 @@ angular.module('freedomNewsApp')
     };
     
     $scope.upVote = function(id){
-      var ref = new Firebase("https://th9gcxvk9q5.firebaseio-demo.com/articles/" + $scope.$parent.article.$id + '/comments/' + id + '/kudos');
+      var ref = new Firebase("https://torid-fire-615.firebaseio.com/articles/" + $scope.$parent.article.$id + '/comments/' + id + '/kudos');
       ref.transaction(function(kudos) {
         return kudos + 1;
       });

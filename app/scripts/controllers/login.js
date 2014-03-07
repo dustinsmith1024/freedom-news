@@ -12,4 +12,11 @@ angular.module('freedomNewsApp')
       });
     };
 
+    $scope.logout = function(service) {
+      console.log('logout!');
+      simpleLogin.logout(service, function(err) {
+        $scope.err = err? err + '' : null;
+      });
+    };
+
   });

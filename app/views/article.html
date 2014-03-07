@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-4">
-    <h1>Articles</h1>
+    <h1><a ng-href="/#/articles">Articles</a></h1>
 
     <div id="articlesDiv">
       <div class="article" ng-repeat="(key, article) in articles | orderByPriority | orderBy:'-kudos'">
@@ -20,10 +20,10 @@
   <div class="col-md-8">
     <h2>
       <em>{{article.name}}</em>: {{article.url}}
-      <span href="#" ng-click="articles.$remove(article.$id)">Remove</span>
     </h2>
-    
-    <span href="#" ng-click="upVote(article.$id)">^Up Vote: {{article.kudos}} points</span>
+    <div>{{article.kudos}} points</div>
+    <button ng-click="articles.$remove(article.$id)">Remove</button>
+    <button ng-click="upVote(article.$id)">^</button>
     <div>ID: {{article.$id}}</div>
 
     <h3>Comments</h3>
