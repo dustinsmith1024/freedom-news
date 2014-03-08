@@ -77,3 +77,34 @@ body {
     border-bottom: 0;
   }
 }
+
+.right-caret {
+    border-bottom: 4px solid transparent;
+    border-top: 4px solid transparent;
+    border-left: 4px solid #000000;
+    display: inline-block;
+    height: 0;
+    opacity: 0.3;
+    vertical-align: top;
+    width: 0;
+}
+
+.right-caret {
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid #000000;
+    display: inline-block;
+    height: 0;
+    opacity: 0.3;
+    vertical-align: top;
+    width: 0;
+}
+
+.up-button {
+  border-color: transparent #000 transparent transparent;
+  border-width:4px;
+  border-style:solid;
+  content: ""
+  display:inline-block;
+}
