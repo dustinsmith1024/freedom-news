@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('freedomNewsApp')
-  .controller('ArticlesCtrl', function ($scope, $firebase) {
-
+  .controller('ArticlesCtrl', function ($rootScope, $scope, $firebase) {
     var ref = new Firebase("https://torid-fire-615.firebaseio.com/articles");
     $scope.articles = $firebase(ref);
 
+    console.log($rootScope.auth, $rootScope.user);
     $scope.addArticle = function(e) {
       if (e.keyCode != 13) return;
       $scope.articles

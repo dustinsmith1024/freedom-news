@@ -7,7 +7,6 @@ angular.module('angularfire.login', ['firebase', 'angularfire.firebase'])
 
   .factory('simpleLogin', function($rootScope, $firebaseSimpleLogin, firebaseRef, $timeout) {
     function assertAuth() {
-      console.log('hiiii');
       if( auth === null ) { throw new Error('Must call loginService.init() before using its methods'); }
     }
 
@@ -29,9 +28,7 @@ angular.module('angularfire.login', ['firebase', 'angularfire.firebase'])
        * @returns {*}
        */
       login: function(provider, callback) {
-        console.log(provider);
         assertAuth();
-        console.log('hiiii2');
         auth.$login(provider, {rememberMe: true}).then(function(user) {
           if( callback ) {
             //todo-bug https://github.com/firebase/angularFire/issues/199
@@ -39,7 +36,6 @@ angular.module('angularfire.login', ['firebase', 'angularfire.firebase'])
               callback(null, user);
             });
           }
-          console.log(user);
         }, callback);
       }
 
