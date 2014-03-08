@@ -1,20 +1,6 @@
 <div class="row">
   <div class="col-md-4">
-    <h1><a ng-href="/#/articles">Articles</a></h1>
-
-    <div id="articlesDiv">
-      <div class="article" ng-repeat="(key, article) in articles | orderByPriority | orderBy:'-kudos'">
-        <a href="#/articles/{{article.$id}}" ng-click="select(article.$id)">Select</a>
-        <span href="#" ng-click="upVote(article.$id)">Up</span>
-        <span ng-model="kudos">{{article.kudos}}</span>
-        <em>{{article.name}}</em>: {{article.url}}
-        <div>{{article.$id}}</div>
-        <div href="#" ng-click="articles.$remove(article.$id)">Remove</div>
-        
-      </div>
-    </div>
-    <input type="text" ng-model="name" placeholder="Article Name">
-    <input type="text" ng-model="url" ng-keydown="addArticle($event)" placeholder="URL">
+    <ng-include src="'views/articles.html'"></ng-include>
   </div>
 
   <div class="col-md-8">

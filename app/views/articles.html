@@ -2,9 +2,10 @@
 
 <div id="articlesDiv">
   <div class="article" ng-repeat="(key, article) in articles | orderByPriority | orderBy:'-kudos'">
-    <a ng-href="#/articles/{{article.$id}}" ng-click="select(article.$id)">Select</a>
-    <a ng-click="upVote(article.$id)">Up</a>
-    <span>{{article.kudos}} {{article.$id}}</span>
+    <span ng-click="upVote(article.$id)" class="glyphicon glyphicon-chevron-up"></span>
+    <a ng-href="#/articles/{{article.$id}}" ng-click="select(article.$id)">
+      <span>{{article.kudos}} {{article.$id}}</span>
+    </a>
     <em>{{article.name}}</em>: {{article.url}}
     <a ng-click="articles.$remove(article.$id)">Remove</a>
   </div>
