@@ -10,13 +10,17 @@ angular.module('freedomNewsApp', [
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        redirectTo: '/articles'
       })
       .when('/login', {
         authRequired: false, // if true, must log in before viewing this page
         templateUrl: 'views/login.html',
         controller: 'LoginController'
+      })
+      .when('/me', {
+        authRequired: true, // if true, must log in before viewing this page
+        templateUrl: 'views/articles.html',
+        controller: 'ArticlesCtrl'
       })
       .when('/articles', {
         templateUrl: 'views/articles.html',
@@ -30,3 +34,4 @@ angular.module('freedomNewsApp', [
         redirectTo: '/'
       });
   });
+  
