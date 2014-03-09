@@ -1,22 +1,12 @@
-<!-- wait for auth to resolve (avoid flashing login page before redirect -->
-<div ng-cloak class="row">
-    <div class="col-md-12">
-
-        <!-- examples for fun and profit -->
-        <!--<div ng-show-auth="login">{{auth.user|json}}</div>-->
-        <!--<div ng-show-auth="error,logout">Logged out</div>-->
-        <!--<div ng-show-auth="error">{{auth.error}}</div>-->
-        <fieldset>
-            <legend>Oauth</legend>
-            <p>
-                <button class="btn btn-lg btn-primary" ng-click="login('twitter')">Twitter</button>
-            </p>
-        </fieldset>
-
-        
-
-        <br />
-        <div ng-show="err" class="alert alert-danger"><strong>{{err}}</strong></div>
-
-    </div>
+<div class="auth-forms">
+ 
+  <h2>Log In</h2>
+ 
+  <form ng-submit="login()">
+    <p ng-show="error" class="text-danger">{{ error }}</p>
+    <input type="email" ng-model="user.email" placeholder="Email" class="form-control"><br>
+    <input type="password" ng-model="user.password" placeholder="Password" class="form-control"><br>
+    <input type="submit" value="Log in" class="btn btn-primary" />
+  </form>
+ 
 </div>

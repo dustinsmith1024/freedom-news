@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="freedomNewsApp">
+  <body ng-app="freedomNewsApp" ng-controller="appCtrl">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -28,9 +28,9 @@
           <ul class="nav nav-pills pull-right">
             <li class="active"><a ng-href="#/articles">Articles</a></li>
             <li><a ng-href="#/rules">Rules</a></li>
-            <li>{{user.username}}</li>
-            <li ng-cloak ng-show-auth="login" ng-controller="LoginController"><a href="#" ng-click="logout()">Log Out</a></li>
-            <li ng-cloak ng-show-auth="['logout','error']"><a href="#/login">Log In</a></li>
+            <li>{{ currentUser.username }}</li>
+            <li><a href="#/login">Log In</a></li>
+            <li><a href="#/logout">Log In</a></li>
           </ul>
           <h3 class="text-muted"><a ng-href="#/">freedom news</a></h3>
         </div>
@@ -71,13 +71,17 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
-    <script src="scripts/angularfire/config.js"></script>
-    <script src="scripts/services/firebase.js"></script>
-    <script src="scripts/services/login.js"></script>
-    <script src="scripts/angularfire/simpleLoginTools.js"></script>
-    <script src="scripts/angularfire/routesecurity.js"></script>
-    <script src="scripts/controllers/login.js"></script>
+        <script src="scripts/angularfire/config.js"></script>
+        <script src="scripts/services/firebase.js"></script>
+        <script src="scripts/services/login.js"></script>
+        <script src="scripts/services/auth.js"></script>
+        <script src="scripts/angularfire/simpleLoginTools.js"></script>
+        <script src="scripts/angularfire/routesecurity.js"></script>
+        <script src="scripts/controllers/login.js"></script>
         <script src="scripts/controllers/articles.js"></script>
+        <script src="scripts/controllers/auth.js"></script>
+        <script src="scripts/services/user.js"></script>
+
         <!-- endbuild -->
 </body>
 </html>

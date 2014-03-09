@@ -1,9 +1,14 @@
 'use strict';
 
-angular.module('freedomNewsApp')
-  .controller('ArticlesCtrl', function ($rootScope, $scope, $firebase) {
+app.controller('ArticlesCtrl', function ($rootScope, $scope, $firebase) {
     var ref = new Firebase("https://torid-fire-615.firebaseio.com/articles");
     $scope.articles = $firebase(ref);
+
+    /*$scope.$on('$firebaseSimpleLogin:login', function (provider, user) {
+      console.log('firebase loging from articles', user);
+      $rootScope.currentUser = user;
+      //$location.path('/');
+    });*/
 
     console.log($rootScope.auth, $rootScope.user);
     $scope.addArticle = function(e) {
